@@ -6,17 +6,39 @@ namespace Zoo
     {
         static void Main(string[] args)
         {
-           
-            Food food = new Food(animaltype.elephant);
-            Actions first = new Actions("Iasi");
-            Actions second = new Actions("Bucharest");
 
-            Animals firstAnimal = new Animals(animaltype.horse);
-            Animals secondAnimal = new Animals(animaltype.giraffe);
+            Zoo zooOne = new Zoo("Iasi");
+            Zoo zooTwo = new Zoo("Bucharest");
 
-            
+            Lion firstLion = new Lion("First Lion", Food.Meat);
+            Elephant firstElephant = new Elephant("First Elephant",Food.Grass);
+            Girrafe firstGirrafe = new Girrafe("First Giraffe", Food.Leaves);
+            Horse firstHorse = new Horse("First Horse",Food.Carrots);
+            Horse secondHorse = new Horse("Second Horse", Food.Apples);
+            Bear firstBear = new Bear("First Bear", Food.Fish);
 
-            first.TransferAnimal(first, secondAnimal);
+            zooOne.BornAnimal(firstLion);
+            zooOne.BornAnimal(firstHorse);
+            zooOne.BornAnimal(firstBear);
+
+            zooTwo.BornAnimal(firstElephant);
+            zooTwo.BornAnimal(firstGirrafe);
+            zooTwo.BornAnimal(secondHorse);
+
+
+            zooOne.Info();
+
+            zooTwo.Info();
+
+            zooOne.TransferAnimal(zooTwo, firstLion);
+
+            zooOne.Info();
+            zooTwo.Info();
+
+            firstHorse.Eat();
+            secondHorse.Eat();
+
+
 
 
 

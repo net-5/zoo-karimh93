@@ -4,28 +4,68 @@ using System.Text;
 
 namespace Zoo
 {
-    public enum animaltype
-
+    public enum Food
     {
-        horse,
-        giraffe,
-        rabbit,
-        lion,
-        elephant
+        Meat,
+        Grass,
+        Carrots,
+        Apples,
+        Leaves,
+        Fish
 
     }
-    
 
-    public class Animals
+    public abstract class Animals
     {
 
-        public animaltype AnimalType { get; set; }
+        private string name;
 
-        public Animals(animaltype animalType)
+        private Food food;
+
+        public string Name
         {
+            get
+            {
+                return name;
+            }
+            set
+            {
 
-            this.AnimalType = animalType;
-
+                name = value;
+            }
         }
+
+        public Food Food
+        {
+            get
+            {
+                return food;
+            }
+            set
+            {
+
+                food = value;
+            }
+        }
+
+
+        public Animals(string name, Food food)
+        {
+            Name = name;
+            Food = food;
+        }
+
+
+        public virtual void Eat()
+        {
+            Console.WriteLine($"{Name} likes to eat {Food}.");
+        }
+
+        public string Info()
+        {
+            return($"Name: {Name} , Favourite food: {Food}");
+        }
+
     }
 }
+
